@@ -3,29 +3,19 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyService from './currency-service';
-
-// function exRate(response, currency){
-//   console.log(response.conversion_rates[`${currency}`])
-//   return response.conversion_rates[`${currency}`]
-// }
-
-// function calc(amount, exRate){
-//   let total = amount*exRate
-// }
-
-
-function getElements(response) {
-  let something = response.conversion_rates;
-  console.log(something);
-}
+import convert from './currency-service';
 
 $(document).ready(function () {
   $('#convert').click(function () {
-    let amount = $('#dollar').val();
-    let currency = $('#currency').val();
-    CurrencyService.getCurrency(amount, currency)
+    let dollAmount = $('#dollarAmount').val();
+    let chosCurrency = $('#chosenCurrency').val();
+
+    CurrencyService.getCurrency()
       .then(function (response) {
-        getElements(response);
+        if(response.conversion_rates[chosCurrency]) {
+          let newAmount = convert(dollAmount, response.conversion_rates[chosCurrency]);
+          $("#showOutput").text(`${newAmount} ${chosCurrency}`);
+        } 
       });
   });
 });
