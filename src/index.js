@@ -2,27 +2,27 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
+import CurrencyService from './currency-service';
 
-$(document).ready(function(){
-  $('#getCurrency').click(function(){
-    const dollarAmount = $('#dollar').val();
-    $('#dollar').val("");
+function clearFields() {
+  $('#dollar').val("");
+}
 
-    let request = new XMLHttpRequest();
-    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
+function getElements(response) {
+  if (response.body) {
+    $('.showExchange').text(`The temperature in Kelvins is ${response.conversion_rates} degrees.`);
+  } else {
+    $('.showErrors').text(`There was an error: ${response.result}`);
+  }
+}
 
-    request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
-        const response = JSON.parse(this.responseText);
+$(document).ready(function() {
+  $('#convert').click(function() {
+    let city = $('#dollar').val();
+    clearFields();
+    CurrencyService.getCurrency(city)
+      .then(function(response) {
         getElements(response);
-      }
-    };
-
-    request.open("GET", url, true);
-    request.send()
-
-    function getElements(response) {
-      $('.showExchange').text(`${response.conversion_rates}`);
-    }
+      });
   });
 });
