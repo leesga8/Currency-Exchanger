@@ -12,7 +12,6 @@ export class CurrencyService {
       });
   }
 }
-
-export function convert(dollarAmount, exchRate){
-  return dollarAmount / exchRate;
+export function convert(dollar, newAmount) {
+  return (dollar * newAmount).toFixed(2);
 }

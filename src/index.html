@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Currency Exchanger</title>
+  <title>Currency Exchange</title>
 </head>
 
 <body>
   <div class="container">
-    <h1>Currency Exchanger</h1>
-
-      <label for="dollarAmount">Dollar amount to be exchanged:</label>
-      <input id="dollarAmount" type="number">
+    <h1>Currency Exchange</h1>
+      <label for="inputDollar">Dollar amount to be exchanged:</label>
+      <input id="inputDollar" type="number" min="1" oninput="validity.valid||(value='');">
       <div>
       <label for="chosenCurrency">Choose Currency:</label>
       <select name="chosenCurrency" id="chosenCurrency">
@@ -22,10 +21,11 @@
         <option value="MXN">MXN</option>
       </select>
       </div>
-      <button class="btn-success" id="convert">Show Conversion</button>
-
-    <div class="showOutput"></div>
-    <div class="showErrors"></div>
+      <button id="buttonConvert" class="btn-success">Show Conversion</button>
+    <div id="showOutput"></div>
+      <p id="results"></p>
+    <div id="showErrors"></div>
+    <p id="errors"></p>
   </div>
 </body>
 
