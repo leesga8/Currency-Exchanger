@@ -9,18 +9,21 @@ function clearFields() {
 }
 
 function getElements(response) {
-  if (response.body) {
-    $('.showExchange').text(`The temperature in Kelvins is ${response.conversion_rates} degrees.`);
+  if (response) {
+ $('.showExchange').text(`Your conversion is: ${response.conversion_rates}.`);
   } else {
-    $('.showErrors').text(`There was an error: ${response.result}`);
+    $('.showErrors').text(`There was an error: ${response.message}`);
   }
 }
 
 $(document).ready(function() {
   $('#convert').click(function() {
-    let city = $('#dollar').val();
+    let amount = $('#dollar').val();
+    let currency = $('#currency').val();
+    console.log(amount)
+    console.log(currency)
     clearFields();
-    CurrencyService.getCurrency(city)
+    CurrencyService.getCurrency()
       .then(function(response) {
         getElements(response);
       });
