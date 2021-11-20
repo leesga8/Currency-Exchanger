@@ -1,38 +1,38 @@
-# _{template-repo}_
+# _Currency Exchanger_
 
-#### _{Brief description of application}_
+#### _Convert USD to a selected Currency_
 
-#### By _**{List of contributors}**_
+#### By _Albert Lee_
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _HTML_
+* _CSS_
+* _JS_
+* _Jquery_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This application receives an input from the user then fetches an api to calculate the converted currency_
 
 ## Setup/Installation Requirements
 
-* _clone template-repo to desired directory or download .zip file_
-* _navigate to the template-repo directory in terminal or other command line interface_
-* _while in the root directory run $ npm install_
-* _once bundle.js and the mode_module are installed open index.html in any browser_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+* _Clone this repository to root folder_
+* _Open terminal and navigate to cloned folder_
+* _In terminal, enter npm install_
+* _Open editor and enter npm run build_
+* _Register an account at https://www.exchangerate-api.com/ . Sign in and view API Key_
+* _Create .env file and save API Key in a variable: API_KEY_
+* _You can view in browser with npm run start_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _No known issues_
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+[MIT](https://opensource.org/licenses/MIT)
 
 ## Contact Information
 
-_{Add your contact information here.}_
+Copyright (c) 2021 Albert Lee
